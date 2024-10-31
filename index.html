@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="images/ap.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>akshay podagatlapalli</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+          font-family: 'JetBrains Mono';
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="threejs-container">
+        <div id="cube">
+            <div id="front"></div>
+            <div id="back"></div>
+            <div id="left"></div>
+            <div id="right"></div>
+            <div id="top"></div>
+            <div id="bottom"></div>
+        </div>
+    </div>
+
+    <div class="titleContainer">
+        <div id="typedTitle"></div>
+        <div class="cursor"></div>
+    </div>
+
+    
+    <div class="contentLinks">
+        <a href="html/projects.html">projects</a>
+        <a href="html/playlists.html">playlists</a>
+        <a href="html/readings.html">readings</a>
+        <a href="html/docs/Akshay Podagatlapalli Resume.pdf" target="_blank">resume</a>
+    </div> 
+    
+    <button id="toggleBackground" aria-label="Switch to dark theme">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+    
+    
+    <!-- About Me Section -->
+    <section class="about-me" :style="{ 'margin-top': aboutMePosition + 'px' }">
+        <h2><span class="wave">👋</span></h2>
+        <img src="images/headshot - Copy.jpg" alt="AP" class="profile-image">
+        <p>
+            I post some of the project I've worked on here.  
+        </p>
+        
+        <p>
+            I am currently pursuing my masters' in analytics at the Institue of Advanced Analytics at NC State.
+        </p> 
+        
+        <p>
+            In the past, I worked in insurance and revolving credit for Scotiabank.
+        </p>
+
+        <p>
+            I published my research in environmental modelling, as an RA   
+            at the Wania Lab at the University of Toronto. 
+        </p>
+
+        <p>
+            I assisted in the optimization of graph based convolutional neural network models 
+            at the Clean Energy lab to search the chemical space for PeLED materials.  
+        </p>
+
+        <p>
+            I interned at Sanofi Pasteur, testing the materials being used in the development of various vaccines.   
+        </p>
+        
+        <p>I have experience in using different languages and technologies such as: </p>
+
+        <div class = "tech-logos">
+            <img src="images/python-seeklogo.com.svg" alt="python" title="python">
+            <img src="images/r-seeklogo.com.svg" alt="R" title="R">
+            <img src="images/javascript-js-seeklogo.com.svg" alt="javascript" title="javascript">
+        </div>
+
+        <div class = "tech-logos2">
+            <img src="images/bash-original.svg" alt="bash" title="bash">
+            <img src="images/postgresql-original.svg" alt="PostgreSQL" title="PostgreSQL"> 
+            <img src="images/docker-original.svg" alt="docker" title="docker">
+        </div>
+
+        <div class = "tech-logos2">
+            <img src="images/Arduino_Logo.svg.png" alt="Arduino" title="Arduino">
+        </div>
+
+    </section>
+
+    <section>
+      <p><br>
+          <br>
+          <br>
+          <br>
+        </p>
+  </section>
+
+    <!-- Contact Links Section -->
+    <div class="contact-links">
+      <!-- Email Link -->
+      <a href="mailto:your-email@example.com">
+          <img src="images/gmail.svg" alt="Email" title="Email"> Email
+      </a>
+
+      <!-- LinkedIn Link -->
+      <a href="https://www.linkedin.com/in/akshaypalli" target="_blank">
+          <img src="images/linkedin.svg" alt="LinkedIn" title="LinkedIn"> LinkedIn
+      </a>
+
+      <!-- GitHub Link -->
+      <a href="https://github.com/akshay-podagatlapalli" target="_blank">
+          <img src="images/github.svg" alt="GitHub" title="GitHub"> GitHub
+      </a>
+    </div>
+
+    <section>
+        <p><br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+          </p>
+    </section>
+   
+    <footer>
+        <p>Copyright © 2023 Akshay Podagatlapalli</p>
+    </footer>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.141.0/build/three.min.js"></script>
+    <script src="js/scripts.js"></script>
+
+</body>
+
+
+</html>
