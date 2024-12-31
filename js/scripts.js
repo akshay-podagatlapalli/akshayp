@@ -71,14 +71,14 @@ document.addEventListener('DOMContentLoaded', function () {
         if (isBlackBackground) {
             document.body.classList.remove('bone-white-background');
             document.body.classList.add('black-background', 'dark-theme');
-            moonIcon.style.display = 'block';
-            sunIcon.style.display = 'none';
+            sunIcon.classList.add('active'); // Show white sun
+            moonIcon.classList.remove('active'); // Hide dark moon
             toggleButton.setAttribute('aria-label', 'Switch to light theme');
         } else {
             document.body.classList.add('bone-white-background');
             document.body.classList.remove('black-background', 'dark-theme');
-            moonIcon.style.display = 'none';
-            sunIcon.style.display = 'block';
+            moonIcon.classList.add('active'); // Show dark moon
+            sunIcon.classList.remove('active'); // Hide white sun
             toggleButton.setAttribute('aria-label', 'Switch to dark theme');
         }
         // Save the current theme state to localStorage
@@ -90,14 +90,13 @@ document.addEventListener('DOMContentLoaded', function () {
         // Toggle the theme state
         let isBlackBackground = localStorage.getItem('theme') !== 'black';
         updateTheme(isBlackBackground);
-        // Save the new theme state to localStorage
-        localStorage.setItem('theme', isBlackBackground ? 'black' : 'boneWhite');
     });
 
     // Apply the theme when the page loads
     let isBlackBackground = localStorage.getItem('theme') !== 'boneWhite';
     updateTheme(isBlackBackground);
 });
+
 
 document.addEventListener('DOMContentLoaded', function () {
     let scene, camera, renderer, cubes = [];

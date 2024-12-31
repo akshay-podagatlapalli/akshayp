@@ -25,13 +25,12 @@ body, body * {
     cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="32" width="32"><circle cx="16" cy="16" r="10" fill="%2300FF00" stroke="black" stroke-width="2"/></svg>'), auto;
 }
 
-
 .threejs-container {
     display: flex;
     top: 0;
     left: 0;
-    z-index: ; /* Base layer */
-    width: 100%;
+    z-index: 1; /* Base layer */
+    width: 90%;
     height: 100%; /* Adjust if necessary */
 }
 
@@ -45,10 +44,16 @@ body, body * {
     background: none;
     border: none;
     color: white;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
 
 #toggleBackground .fas {
     font-size: 1.5em;
+}
+
+#toggleBackground:hover {
+    transform: scale(1.1);
 }
 
 .bone-white-background {
@@ -59,6 +64,13 @@ body, body * {
     background-color: #000000; /* Ensuring default black color is set here for clarity */
 }
 
+#toggleBackground .fa-moon {
+    color: #333333; /* Dark moon for light theme */
+}
+
+#toggleBackground .fa-sun {
+    color: #FFFFFF; /* White sun for dark theme */
+}
 
 /* Title Container */
 .titleContainer {
@@ -112,30 +124,28 @@ body, body * {
 .contentLinks a:hover {
     background-color: rgba(0, 255, 8, 0.8);
 }
- 
-  @keyframes wave {
+
+@keyframes wave {
     0% { transform: rotate(0deg); }
     50% { transform: rotate(14deg); }
     100% { transform: rotate(0deg); }
- }
- 
- .wave {
+}
+
+.wave {
     display: inline-block;
-    animation: wave 1s infinite;
- }
- 
- html {
+    animation: wave 0.7s infinite;
+}
+
+html {
     scroll-behavior: smooth;
- }
- 
-/* This rule applies to the main content area */
+}
+
 .main-content {
     min-height: calc(100px - 10000px);
     /* Rest of your styles */
 }
 
-
- .profile-image {
+.profile-image {
     width: 250px; /* Adjust the width as needed */
     height: 250px; /* Adjust the height as needed */
     border-radius: 50%; /* This will make it round */
@@ -195,7 +205,6 @@ body, body * {
     height: auto; /* Maintain aspect ratio */
 }
 
-/* Style for smaller screens */
 @media (max-width: 768px) {
     .tech-logos img {
         width: 100px; /* Smaller size for mobile screens */
@@ -203,7 +212,6 @@ body, body * {
         margin: 3px;
     }
 }
-
 
 .projects-container {
     width: 80%; /* Adjust width as needed */
@@ -215,7 +223,6 @@ body, body * {
     align-items: flex-start; /* Align items to the left (start) of the container */
     margin-left: auto; /* Pushes the container to the right */
 }
-
 
 .project {
     background-color: var(--box-bg-color);
