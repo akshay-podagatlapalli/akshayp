@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../../images/ap.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>akshay podagatlapalli - Blog</title>
+    <link rel="stylesheet" href="../../css/blog.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'JetBrains Mono';
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="contentLinks">
+            <a href="../projects.html">projects</a>
+            <a href="../playlists.html">playlists</a>
+            <a href="../readings.html">readings</a>
+            <a href="../../docs/Akshay Podagatlapalli Resume.pdf" target="_blank">resume</a>
+        </div>
+        <div class="titleContainer">
+            <div id="projectsElementId"></div>
+            <div class="cursor"></div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <!-- Blog Post Section -->
+        <div class="blog-post">
+            <h1>Ulimate Fighting Championship (UFC) Recommender System</h1>
+            <img src="../../images/ufc_rec.png" alt="Sample Post Image" class="post-image">
+            <div class="post-content">
+                <!-- Begin Post Content -->
+
+                <h2>Introduction</h2>
+
+                <p>The hope with this UFC Recommender System is to provide some introduction 
+                    to the sport of MMA, and also introduce you to some of the most iconic 
+                    fighters in UFC history.</p>
+
+                <p>Using a blend of data analysis and user preferences, this system offers 
+                    personalized fighter recommendations. Whether you're drawn to fierce 
+                    striking confrontations or intricate ground game tactics, this model 
+                    will help tease it out for you.</p>
+
+                <p>Answer a few questions posed by the model and based on your input, it will 
+                    sift through a vast roster of UFC fighters (both active and retired) and 
+                    compile a top 5 list of fighters you should explore further.</p>
+                
+                <p>The accuracy of the model for each of the C values was calculated by dividing the sum of the total 
+                    number of correctly classified values by the model over the total number of correctly classified observations.</p>
+                
+                <img src="../../images/post3/interface.png" alt="Sample Post Image" class="post-image">
+                
+                <h2>Data Collection</h2>
+
+                <p>This model's data foundation comes from this source: UFC Data on Kaggle.</p>
+
+                <h2>Data Cleaning</h2>
+
+                <p>The dataset used for recommendations underwent the 
+                    following stages of refinement:</p>
+                
+                <p>The original dataset documented stats per fight for each fighter, presented 
+                    in chronological order from UFC's inception through 2021. To focus on 
+                    recommending fighters (not individual fights), we compiled cumulative 
+                    stats for each fighter.</p>
+                
+                <p>The dataset's primary identifier was fighter_name, but it originally featured 
+                    R_fighter_name and B_fighter_name as main and auxiliary keys. Given multiple 
+                    entries for the same fighter (reflecting multiple bouts), we aggregated fight 
+                    data under each fighter's name for both R_fighter_name and B_fighter_name.</p>
+                
+                <p>After establishing the primary key, we aggregated stats per fight for each fighter
+                    using functions like average(), count(), and max(). This helped present a 
+                    consolidated record for each fighter with precise stats.</p>
+                
+                <p>Fighter classification by style was achieved by following this insightful 
+                    article:<a href="https://literalfightnerd.com/posts/2022-01-05-visualizing-fighter-styles/">Visualizing Fighter Styles</a>.</p>
+                
+                <p>Subsequently, we performed data analysis and PCA to construct the recommendation model.</p>
+                
+                <h2>Formulating the Recommender Model</h2>
+
+                <p>In short, this model leverages cosine similarity, comparing user responses with the dataset's fighter statistics. 
+                    Here's a deeper dive into the process:</p>
+
+                <p>Users answer five questions.</p>
+
+                <p>The first two queries hone in on user preferences regarding fighting styles and weight classes, 
+                    enabling the model to curate a narrowed dataset featuring aligned fighters.</p>
+
+                <p>The subsequent three questions are derived from PCA analysis: Question 3 corresponds to PC1, 
+                    Question 4 to PC2, and Question 5 to PC3. Each principal component (PC) has a loading score 
+                    that offers insight into feature contribution. User responses (ranging between 0 and 10) adjust 
+                    these loading scores. Desired features get multiplied, while less-preferred features get divided 
+                    by the user's input. This process is applied to questions 3 to 5.</p>
+
+                <p>The modified loading scores merge into a singular vector. The closer a fighter's stats align with 
+                    this combined vector, the higher their cosine similarity score.</p>
+
+                <p>Fighters are then ranked based on these scores, and the top contenders emerge as recommendations.</p>
+                
+                <p>This methodology emphasizes the importance of user preferences, ensuring that recommendations resonate 
+                    with individual tastes. While PCA uncovers user preference structures, cosine similarity pinpoints 
+                    fighters with stats harmonizing with the user's adjusted preference vector.</p>
+                
+                <p>Additionally, future model iterations may integrate metrics like popularity, recent achievements, 
+                    user feedback, and other relevant contexts, amplifying the recommendation's accuracy.</p>
+                
+                <h2>Next Steps</h2>
+                <p>This model serves as our initial successful prototype. Moving forward, we aim to integrate more features, 
+                    such as fighter popularity, top-viewed bouts, social media influence, and recent accolades. These additions 
+                    will render our recommendation system even more holistic and adaptive.</p>
+                <!-- End Post Content -->
+                
+            </div>
+        </div>
+    </div>
+
+    <button id="toggleBackground" aria-label="Switch to dark theme">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun" style="display: none;"></i>
+    </button>
+
+    <footer>
+        <p>Copyright © 2025 Akshay Podagatlapalli</p>
+    </footer>
+    <script src="../../js/scripts.js"></script>
+</body>
+</html>
